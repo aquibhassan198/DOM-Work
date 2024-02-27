@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #reports{
+            width:600px;
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:10px;
+        }
+        #reports>div{
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            padding:20px;
+           
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <select id="month"title="select month">
+            <option id="January">January</option>
+            <option id="Febuary">Febuary</option>
+            <option id="March">March</option>
+            <option id="April">April</option>
+            <option id="May">May</option>
+            <option id="June">June</option>
+            <option id="July">July</option>
+            <option id="August">August</option>
+            <option id="September">September</option>
+            <option id="October">October</option>
+            <option id="November">November</option>
+            <option id="December">December</option>
+        </select>
+            <input id=income type="Number" placeholder="Enter Income"/>
+            <input id=expense type="Number" placeholder="Enter Expense"/>
+            <input type="submit"/>
+       
+        <!-- <div id="reports"></div> -->
+    </form>
+    <div id="reports">
+
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit",myfunction)
+    
+    function myfunction(){
+
+        event.preventDefault();
+
+        var div1=document.createElement("div")
+
+        var h1=document.createElement("h1")
+        h1.innerText=document.querySelector("#month").value
+
+        var p1=document.createElement("p")
+        p1.innerText=document.querySelector("#income").value
+
+        var p2=document.createElement("p")
+        p2.innerText=document.querySelector("#expense").value
+
+        let head=document.createElement("h3")
+
+        if (p1.innerText<p2.innerText){
+            head.innerText="DEBT" 
+            head.style.color="red"
+
+        } else if (p1.innerText>p2.innerText) {
+        head.innerText="SAVE";
+        head.style.color="green";
+
+        }else{
+        //   (p1.innerText) ==(p2.innerText);
+          head.innerText="BREAKEVEN";
+          head.style.color="orange";
+        }
+
+        let btn=document.createElement("button");
+        btn.innerText="DELETE"
+        btn.addEventListener("click",del);
+        btn.style.backgroundColor="grey";
+        btn.style.color="white";
+        
+        div1.append(h1,p1,p2,head,btn);
+        document.querySelector("#reports").append(div1);
+    }
+    function del(){
+        event.target.parentNode.remove()
+    
+}
+
+
+</script>

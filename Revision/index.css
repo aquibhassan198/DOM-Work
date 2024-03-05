@@ -5,6 +5,8 @@
    
   }
   h1{
+    height:40px;
+    justify-content: space-evenly;
     margin-bottom: 30px;
     text-align: center;
     background-color:#7A4804;
@@ -26,6 +28,7 @@
   }
   
   #difficulty{
+    text-align: center;
     margin: auto;
     margin-top: 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
